@@ -106,3 +106,8 @@ cor(iris[,-5])
 cor(iris[iris$Species == "setosa",-5])
 cor(iris[iris$Species == "versicolor",-5])
 cor(iris[iris$Species == "virginica",-5])
+
+# Everything in one picture
+install.packages("GGally")
+library(GGally)
+ggpairs(iris, aes(colour = Species, alpha=0.4), lower=list(combo=wrap("facethist", bins=20)))
