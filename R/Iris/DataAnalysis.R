@@ -1,7 +1,9 @@
 # Iris dataset is available with standard R installation
+data(iris)
 iris
 
-# Check the dimentions of the dataset
+# Check the dimensions of the dataset
+# There are 5 columns and 150 examples
 dim(iris)
 
 # Have a look at the first & last few rows
@@ -90,3 +92,17 @@ pw.density + geom_density()
 # Box plots by Species
 pw.boxplot <- ggplot(iris, aes(x=Species, y=Petal.Width))
 pw.boxplot + geom_boxplot(aes(fill=Species))
+
+# Bivariate plots for all the independent features
+point.g <- ggplot(iris, aes(col=Species))
+
+point.g + geom_point(aes(Sepal.Length, Sepal.Width))
+point.g + geom_point(aes(Sepal.Length, Petal.Length))
+point.g + geom_point(aes(Sepal.Length, Petal.Width))
+point.g + geom_point(aes(Petal.Width, Petal.Length))
+
+# Check the correlations
+cor(iris[,-5])
+cor(iris[iris$Species == "setosa",-5])
+cor(iris[iris$Species == "versicolor",-5])
+cor(iris[iris$Species == "virginica",-5])
