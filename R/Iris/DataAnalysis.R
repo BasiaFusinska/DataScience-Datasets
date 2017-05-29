@@ -23,6 +23,7 @@ summary(iris$Petal.Width)
 summary(iris)
 
 # Plot the bar chart for labels
+install.packages("ggplot2")
 library(ggplot2)
 ggplot(iris, aes(Species)) +
   geom_bar(aes(fill=Species))
